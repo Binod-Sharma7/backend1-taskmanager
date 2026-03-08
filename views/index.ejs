@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+    <div class="bg-zinc-500 h-screen p-10 ">
+        <h1 class="text-3xl font-bold underline">
+            Task manager app
+        </h1>
+        <form class="mt-10  gap-5" action="/create-task" method="post">
+            <input type="text" name="title" placeholder="Enter your title here"
+                class="block border-2 outline-none border-gray-300 p-2 rounded-lg">
+            <textarea name="details" class="block border-2 outline-none border-gray-300 p-2 rounded-lg my-5 "
+                placeholder="enter details"></textarea>
+            <button type="submit" class="bg-blue-500 active:scale-95 text-white px-4 py-2 rounded-lg">Add Task</button>
+        </form>
+        <div>
+            <h2 class="text-2xl font-bold mt-10">Tasks</h2>
+            <div class="mt-5 flex gap-5 flex-wrap">
+                <% if(files.length>0){ %>
+                    <% files.forEach(file=>{ %>
+                        <div class="bg-white p-5  rounded-lg  mb-5">
+                            <div class="flex gap-5"><h3 class="text-xl font-bold"><%=file.replace('.txt', '').charAt(0).toUpperCase() + file.replace('.txt', '').slice(1) %></h3>
+                            <form action="/delete/<%=file.replace('.txt', '')%>" method="post">
+                                <button type="submit" onclick="" class="bg-red-700 w-5 text-center text-white h-7 cursor-pointer active:scale-90 rounded-lg">x</button>
+                            </form></div>
+                            <a href="/task/<%=file.replace('.txt', '')%>" class="text-blue-500 hover:underline">View Details</a>
+                        </div>
+                        <% }) %>
+                            <%} else{ %>
+            </div>
+            <h1 class="font-medium">No tasks available</h1>
+        </div>
+        <% } %>
+
+
+
+</body>
+
+</html>
