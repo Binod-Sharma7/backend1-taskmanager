@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full transition-all duration-300 hover:shadow-3xl hover:scale-105">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">
+            <i class="fas fa-edit text-indigo-600 mr-3"></i>
+            Edit Task Name
+        </h1>
+        <form class="space-y-6" action="/edit" method="post">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                    <i class="fas fa-tag mr-2"></i>Current Name
+                </label>
+                <input type="text" name="previous" readonly value="<%=title%>"
+                    class="w-full border-2 border-gray-300 rounded-lg p-3 bg-gray-50 text-gray-600 outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                    <i class="fas fa-pencil-alt mr-2"></i>New Name
+                </label>
+                <input type="text" name="new" placeholder="Enter new task name"
+                    class="w-full border-2 border-gray-300 rounded-lg p-3 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-200">
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg transition-all duration-200 hover:scale-105 flex items-center justify-center font-medium">
+                <i class="fas fa-save mr-2"></i>Update Task Name
+            </button>
+        </form>
+        <div class="mt-6 text-center">
+            <a href="/" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center justify-center transition-colors duration-200">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Home
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tasks</title>
+    <title>Task Details</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body >
-    <div class="bg-zinc-500     h-screen p-10 ">
-        <h1 class="bg-zinc-600 text-white p-5 text-3xl font-bold w-fit mb-1 "><%= title[0].toUpperCase() + title.slice(1) %></h1>
-    <p class="bg-zinc-600 ml-10 text-white p-5 w-fit font-medium"><%= details %></p>
-    <p><a href="/" class="text-yellow-500 ml-10 hover:underline">Return to home</a></p></div>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl p-8 max-w-lg w-full transition-all duration-300 hover:shadow-3xl hover:scale-105">
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800">
+                <%= title && title.length > 0 ? title[0].toUpperCase() + title.slice(1) : 'No Title' %>
+            </h1>
+        </div>
+
+        <div class="border-t border-gray-200 pt-6">
+            <h2 class="text-lg font-semibold text-gray-700 mb-3 flex items-center">
+                <i class="fas fa-sticky-note mr-2 text-blue-600"></i>Task Details
+            </h2>
+            <div class="bg-gray-50 rounded-lg p-4 min-h-[100px]">
+                <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">
+                    <%= details %>
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-8 flex gap-4">
+            <a href="/" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg transition-all duration-200 hover:scale-105 flex items-center justify-center font-medium">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Home
+            </a>
+            <a href="/edit?filename=<%=title%>" class="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg transition-all duration-200 hover:scale-105 flex items-center justify-center font-medium">
+                <i class="fas fa-edit mr-2"></i>Edit Task
+            </a>
+        </div>
+    </div>
 </body>
+
 </html>
